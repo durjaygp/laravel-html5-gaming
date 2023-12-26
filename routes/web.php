@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\WebController;
-
+use App\Http\Controllers\Admin\GameController;
 
 
 // =============== Home Routes ===============
@@ -127,6 +127,7 @@ Route::middleware(['auth', 'isadmin'])->group(function(){
     Route::post('admin/page/about/', [AdminController::class, 'homeAboutSave'])->name('page.homeAboutSave');
   //  Route::post('admin/website/settings/update', [SettingController::class, 'update'])->name('update.setting');
 
+    Route::resource('game', GameController::class);
 
 
 });

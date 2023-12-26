@@ -34,9 +34,9 @@
                     </div>
                 </div>
                 <div class="row">
-@php
-$games = \App\Models\Game::whereStatus(1)->get();
-@endphp
+                    @php
+                    $games = \App\Models\Game::whereStatus(1)->get();
+                    @endphp
                     @foreach($games as $row)
                     <div class="col-md-4">
                         <div class="latest-games-items mb-30">
@@ -44,10 +44,7 @@ $games = \App\Models\Game::whereStatus(1)->get();
                                 <a href="#"><img src="{{asset($row->image)}}" alt=""></a>
                             </div>
                             <div class="latest-games-content">
-                                <div class="lg-tag">
-                                    <a href="#">racing</a>
-                                </div>
-                                <h4><a href="#">{{$row->name}}</a></h4>
+                                <h4><a href="{{$row->link}}">{{$row->name}}</a></h4>
                                 <p>entry fee : <span>free</span></p>
                             </div>
                         </div>

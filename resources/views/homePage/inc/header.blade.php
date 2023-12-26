@@ -113,8 +113,14 @@
                                             </li>
                                             <li>
                                                 <div class="checkout-link">
-                                                    <a href="cart.html">Shopping Cart</a>
-                                                    <a class="red-color" href="checkout.html">Checkout</a>
+                                                    <a href="cart.html">Profile</a>
+
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        <a class="red-color" href="{{route('logout')}}"
+                                                           onclick="event.preventDefault();
+                                                this.closest('form').submit();">Logout</a>
+                                                    </form>
                                                 </div>
                                             </li>
                                         </ul>

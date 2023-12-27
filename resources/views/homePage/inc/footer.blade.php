@@ -1,29 +1,5 @@
 <footer>
     <div class="footer-top footer-bg s-footer-bg">
-        <!-- newsletter-area -->
-        <div class="newsletter-area s-newsletter-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="newsletter-wrap">
-                            <div class="section-title newsletter-title">
-                                <h2>Our <span>Newsletter</span></h2>
-                            </div>
-                            <div class="newsletter-form">
-                                <form action="#">
-                                    <div class="newsletter-form-grp">
-                                        <i class="far fa-envelope"></i>
-                                        <input type="email" placeholder="Enter your email...">
-                                    </div>
-                                    <button>SUBSCRIBE <i class="fas fa-paper-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- newsletter-area-end -->
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-xl-3 col-lg-4 col-md-6">

@@ -19,13 +19,6 @@
                         <div class="headline">
                             <h5>Latest <span>News</span></h5>
                         </div>
-                        <div class="social-link">
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="banner-magazine-active">
                         @foreach($blogs as $row)
@@ -59,63 +52,37 @@
                 </div>
                 <div class="row">
                     @php
-                    $games = \App\Models\Game::whereStatus(1)->get();
+                    $games = \App\Models\Game::whereStatus(1)->take(15)->get();
                     @endphp
+                </div>
+                <div class="row">
                     @foreach($games as $row)
-                    <div class="col-md-4">
-                        <div class="latest-games-items mb-30">
-                            <div class="latest-games-thumb">
-                                <a href="#"><img src="{{asset($row->image)}}" alt=""></a>
-                            </div>
-                            <div class="latest-games-content">
-                                <h4><a href="{{$row->link}}">{{$row->name}}</a></h4>
-                                <p>entry fee : <span>free</span></p>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="upcoming-game-item mb-40">
+                                <div class="upcoming-game-head">
+                                    <div class="uc-game-head-title">
+                                        <span>SEPTEMBER 22, 2020</span>
+                                        <h4><a href="#">{{$row->name}}</a></h4>
+                                    </div>
+                                </div>
+                                <div class="upcoming-game-thumb">
+                                    <img src="{{asset($row->image)}}" alt="">
+                                    <div class="upcoming-game-cart">
+                                        <a href="#" class="btn transparent-btn"><i class="fas fa-play-circle"></i>Play</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
-
-
                 </div>
+                <div class="text-center">
+                    <a href="#" class="btn wow fadeInUp m-3" data-wow-delay="1s" style="visibility: visible; animation-delay: 2.2s; animation-name: fadeInUp;">MORE GAMES</a>
+                </div>
+
             </div>
         </section>
         <!-- latest-games-area-end -->
     </div>
     <!-- area-bg-one-end -->
-    <!-- blog-area -->
-    @php
-    $blogs = \App\Models\Blog::latest()->whereStatus(1)->take(3)->get();
-    @endphp
-    <section class="blog-area pt-115 pb-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title title-style-three text-center mb-70">
-                        <h2>Latest News <span>Articles</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @foreach($blogs as $row)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-post blog-style-two mb-50">
-                            <div class="blog-thumb mb-30">
-                                <a href="{{route('home.blogDetails',$row->slug)}}"><img src="{{asset($row->image)}}" alt=""></a>
-                            </div>
-                            <div class="blog-post-content">
-                                <h4><a href="{{route('home.blogDetails',$row->slug)}}">{{$row->name}}</a></h4>
-                                <div class="blog-meta">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y h:i A')}}</li>
-                                    </ul>
-                                </div>
-                                <p>{{\Illuminate\Support\Str::limit($row->description, 90)}}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    <!-- blog-area-end -->
+
 @endsection

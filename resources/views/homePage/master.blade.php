@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('geco')}}/css/default.css">
     <link rel="stylesheet" href="{{asset('geco')}}/css/style.css">
     <link rel="stylesheet" href="{{asset('geco')}}/css/responsive.css">
+    <link rel="stylesheet" href="{{asset('/')}}iziToast/dist/css/iziToast.min.css">
 </head>
 <body>
 <!-- preloader -->
@@ -71,5 +72,38 @@
 <script src="{{asset('geco')}}/js/jquery.magnific-popup.min.js"></script>
 <script src="{{asset('geco')}}/js/plugins.js"></script>
 <script src="{{asset('geco')}}/js/main.js"></script>
+<script src="{{asset('/')}}iziToast/dist/js/iziToast.min.js"></script>
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        <script>
+            iziToast.error({
+                title: '',
+                position:'topRight',
+                message: '{{$error}}',
+            });
+        </script>
+    @endforeach
+@endif
+
+@if(session()->get('success'))
+    <script>
+        iziToast.success({
+            title: '',
+            position:'topRight',
+            message: '{{session()->get('success')}}',
+        });
+
+    </script>
+@endif
+
+@if(session()->get('warning'))
+    <script>
+        iziToast.warning({
+            title: '',
+            position:'topRight',
+            message: '{{session()->get('warning')}}',
+        });
+    </script>
+@endif
 </body>
 </html>

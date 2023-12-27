@@ -45,75 +45,36 @@
 {{--        </div>--}}
 {{--    </form>--}}
 {{--</x-guest-layout>--}}
-@extends('frontEnd.master')
+@extends('homePage.master')
 @section('title','Login')
 @section('content')
-    <!-- Page Title -->
-    <section class="page-title">
-        <div class="auto-container">
-            <h1 style="color: #D6BC94;">login</h1>
-        </div>
-    </section>
-    <!-- End Page Title -->
 
-    <!-- Login Container -->
-    <div class="register-container margin">
-        <div class="auto-container">
-            <div class="inner-container">
-                <div class="row clearfix">
-
-                    <!-- Image Column -->
-                    <div class="col-lg-3"></div>
-                    <div class="form-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <div class="pattern-layer" style="background-image:url({{asset('front')}}/images/background/18.png)"></div>
-                            <div class="pattern-layer-2" style="background-image:url({{asset('front')}}/images/background/19.png)"></div>
-                            <a href="{{route('register')}}" class="facebook-login"> Register </a>
-                            <div class="fill">or fill the form</div>
-
-                            <!-- Register Form -->
-                            <div class="register-form">
-
-                                <!-- Register Form -->
-                                <form method="post" action="{{ route('login') }}">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email Address" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" name="password" placeholder="Password" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="check-box"><input type="checkbox" name="shipping-option" id="account-option"> &ensp; <label for="account-option">Remember me</label> <a href="#">Forgot password?</a></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">Login</span></button>
-
-                                    </div>
-
-
-
-                                </form>
-
-                            </div>
-                            <!-- End Register Form -->
-
-                        </div>
+    <!-- contact-area -->
+    <section class="contact-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pl-45">
+                    <div class="section-title title-style-three mb-20">
+                        <h2 class="text-center m-5"> <span>Login</span></h2>
                     </div>
-                    <div class="col-lg-3"></div>
-
-                    <!-- Form Column -->
-
-
+                    <div class="contact-form">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="email" name="email" placeholder="Your Mail">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="password" name="password" placeholder="Your Password">
+                                </div>
+                            </div>
+                            <button>SUBMIT</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- End Register Container -->
+    </section>
+    <!-- contact-area-end -->
 
 @endsection

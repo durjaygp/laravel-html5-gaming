@@ -51,83 +51,43 @@
 {{--    </form>--}}
 {{--</x-guest-layout>--}}
 
-@extends('frontEnd.master')
-@section('title','Register')
+@extends('homePage.master')
+@section('title','Login')
 @section('content')
 
-    <!-- Page Title -->
-    <section class="page-title">
-        <div class="auto-container">
-            <h1 style="color: #D6BC94;">Register</h1>
-            <h1 class="text-black"><a href="{{route('login')}}">Or Login</a></h1>
-        </div>
-    </section>
-    <!--End Page Title-->
-
-    <!-- Register Container -->
-    <div class="register-container margin">
-        <div class="auto-container">
-            <div class="inner-container">
-                <div class="row clearfix">
-
-                    <!-- Image Column -->
-             <div class="col-lg-3"></div>
-                    <div class="form-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <div class="pattern-layer" style="background-image:url({{asset('front')}}/images/background/18.png)"></div>
-                            <div class="pattern-layer-2" style="background-image:url({{asset('front')}}/images/background/19.png)"></div>
-                            <a href="{{route('login')}}" class="facebook-login"> Login </a>
-                            <div class="fill">or fill the form</div>
-
-                            <!-- Register Form -->
-                            <div class="register-form">
-
-                                <!-- Register Form -->
-                                <form method="post" action="{{ route('register') }}">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder=" Name" required>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" name="password" placeholder="Password" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" name="password_confirmation" placeholder="Password" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="check-box"><input type="checkbox" name="shipping-option" id="account-option"> &ensp; <label for="account-option">I have read and accept the Terms and Privacy Policy</label></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button class="theme-btn btn-style-one" type="submit" name="submit-form"><span class="txt">Register</span></button>
-                                    </div>
-
-                                </form>
-
-                            </div>
-                            <!-- End Register Form -->
-
-                        </div>
+    <!-- contact-area -->
+    <section class="contact-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pl-45">
+                    <div class="section-title title-style-three mb-20">
+                        <h2 class="text-center m-5"> <span>Register</span></h2>
                     </div>
-             <div class="col-lg-3"></div>
+                    <div class="contact-form">
+                        <form method="post" action="{{ route('register') }}">
+                            @csrf
 
-                    <!-- Form Column -->
-
-
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="name" placeholder=" Name" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="email" name="email" placeholder="Email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="password" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="password" name="password_confirmation" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <button>Register</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Register Container -->
-
+    </section>
+    <!-- contact-area-end -->
 
 @endsection

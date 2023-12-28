@@ -26,14 +26,14 @@
                             <div class="upcoming-game-item mb-40">
                                 <div class="upcoming-game-head">
                                     <div class="uc-game-head-title">
-                                        <span>SEPTEMBER 22, 2020</span>
+                                        <span> {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y h:i A')}}</span>
                                         <h4><a href="#">{{$row->name}}</a></h4>
                                     </div>
                                 </div>
                                 <div class="upcoming-game-thumb">
                                     <img src="{{asset($row->image)}}" alt="">
                                     <div class="upcoming-game-cart">
-                                        <a href="#" class="btn transparent-btn"><i class="fas fa-play-circle"></i>Play</a>
+                                        <a href="{{route('game.details',['slug'=>$row->slug])}}" class="btn transparent-btn"><i class="fas fa-play-circle"></i>Play</a>
                                     </div>
                                 </div>
                             </div>

@@ -9,7 +9,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-4 col-lg-6">
                     <div class="game-overview-img">
-                        <img src="{{asset($game->image)}}" alt="">
+                        <img src="{{asset($game->image)}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-6">
@@ -17,13 +17,21 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Game</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('games.home')}}">Game</a></li>
                             </ol>
                         </nav>
                         <h2>{{$game->name}} <span>2020</span></h2>
-
                         <a href="{{$game->link}}" class="btn btn-style-two">play now</a>
+                        <form action="{{route('favorite.save')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="{{$game->id}}">
+                            <div class="m-1">
+                                <button type="submit" href="{{$game->link}}" class="btn btn-style-three">Add To Favorite list</button>
+                            </div>
+                        </form>
+
                     </div>
+
                 </div>
             </div>
         </div>

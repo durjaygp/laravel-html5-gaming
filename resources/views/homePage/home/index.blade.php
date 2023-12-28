@@ -76,7 +76,7 @@
                     @endforeach
                 </div>
                 <div class="text-center">
-                    <a href="#" class="btn wow fadeInUp m-3" data-wow-delay="1s" style="visibility: visible; animation-delay: 2.2s; animation-name: fadeInUp;">MORE GAMES</a>
+                    <a href="{{route('games.home')}}" class="btn wow fadeInUp m-3" data-wow-delay="1s" style="visibility: visible; animation-delay: 2.2s; animation-name: fadeInUp;">MORE GAMES</a>
                 </div>
 
             </div>

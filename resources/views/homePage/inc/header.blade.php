@@ -12,14 +12,14 @@
                                 <ul>
                                     <li class="{{ Route::is('home') ? 'show' : '' }}"><a href="{{route('home')}}">Home</a></li>
 {{--                                    <li><a href="game-overview.html">About Us</a></li>--}}
-                                    <li class="{{ Route::is('game') ? 'show' : '' }}"><a href="{{route('game')}}">Games</a></li>
+                                    <li class="{{ Route::is('games.home') ? 'show' : '' }}"><a href="{{route('games.home')}}">Games</a></li>
                                     <li class="{{ Route::is('home.blogs') ? 'show' : '' }}"><a href="{{route('home.blogs')}}">Blog</a></li>
                                     <li class="{{ Route::is('home.contact') ? 'show' : '' }}"><a href="{{route('home.contact')}}">Contact Us</a></li>
 
                                     @if(auth()->check())
                                         <li><a href="{{route('login')}}">{{auth()->user()->name}} </a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">My Games</a></li>
+                                                <li><a href="{{route('favorite.games')}}">My Games</a></li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <li>

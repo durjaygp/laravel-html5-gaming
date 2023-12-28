@@ -24,8 +24,8 @@ use App\Http\Controllers\Admin\GameController;
 
 // =============== Home Routes ===============
 Route::get('/', [WebController::class,'index'])->name('home');
-Route::get('/games', [WebController::class,'game'])->name('game');
-Route::get('/game/{slug}', [WebController::class,'gameDetails'])->name('game.details');
+Route::get('/games', [WebController::class,'game'])->name('games.home');
+Route::get('/details/{slug}', [WebController::class,'gameDetails'])->name('game.details');
 
 
 Route::get('/books', [BookController::class,'index'])->name('home.books');
@@ -54,6 +54,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::post('/favorite/save',[WebController::class,'favoriteSave'])->name('favorite.save');
+    Route::get('/favorite/games',[WebController::class,'favoriteGame'])->name('favorite.games');
+
     Route::get('/dashboard/my-books',[UserPanelController::class,'index'])->name('user.myBooks');
   //  Route::get('/dashboard/book/read/{id}',[UserPanelController::class,'read'])->name('myBooks.read');
     Route::get('/dashboard/book/read/{encryptedId}', [UserPanelController::class, 'read'])

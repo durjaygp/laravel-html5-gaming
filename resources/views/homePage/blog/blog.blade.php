@@ -14,7 +14,7 @@
                                 <a href="{{route('home.blogDetails',$row->slug)}}"><img src="{{asset($row->image)}}" alt=""></a>
                             </div>
                             <div class="blog-list-post-content">
-                                <h2><a href="#">{{$row->name}}</a></h2>
+                                <h2><a href="{{route('home.blogDetails',$row->slug)}}">{{$row->name}}</a></h2>
                                 <div class="blog-meta">
                                     <ul>
                                         <li>bY <a href="#">{{$row->user->name}}</a>

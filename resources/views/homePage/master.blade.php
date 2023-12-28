@@ -4,9 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <meta name="description" content="">
+    <meta name="robots" content="index,follow"><!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow"><!-- Google Specific -->
+    <meta name="author" content="{{$website->author}}"/>
+    <meta name="keywords" content="{{$website->keywords}}" />
+    <meta name="url" content="{{$website->url}}" />
+    <meta name="google-site-verification" content="{{$website->google}}">
+    <meta name="tags" content="{{$website->tags}}" />
+    <meta name="description" content="{{$website->description}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset($website->fav_icon)}}">
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('geco')}}/css/bootstrap.min.css">
@@ -50,9 +57,6 @@
 @include('homePage.inc.footer')
 <!-- footer-area-end -->
 
-
-
-
 <script src="{{asset('geco')}}/js/vendor/jquery-3.4.1.min.js"></script>
 <script src="{{asset('geco')}}/js/popper.min.js"></script>
 <script src="{{asset('geco')}}/js/bootstrap.min.js"></script>
@@ -71,8 +75,9 @@
 <script src="{{asset('geco')}}/js/imagesloaded.pkgd.min.js"></script>
 <script src="{{asset('geco')}}/js/jquery.magnific-popup.min.js"></script>
 <script src="{{asset('geco')}}/js/plugins.js"></script>
-<script src="{{asset('geco')}}/js/main.js"></script>
+
 <script src="{{asset('/')}}iziToast/dist/js/iziToast.min.js"></script>
+<script src="{{asset('geco')}}/js/main.js"></script>
 @if($errors->any())
     @foreach($errors->all() as $error)
         <script>

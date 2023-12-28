@@ -6,7 +6,7 @@
                     <div class="main-menu">
                         <nav>
                             <div class="logo">
-                                <a href="{{route('home')}}"><img src="{{asset('geco')}}/img/logo/logo.png" alt="Logo"></a>
+                                <a href="{{route('home')}}"><img src="{{asset($website->website_logo)}}" alt="{{asset($website->name)}}" title="{{asset($website->name)}}"></a>
                             </div>
                             <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
                                 <ul>
@@ -39,8 +39,6 @@
                                             </ul>
                                         </li>
                                     @endauth
-
-
 
                                     <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="fas fa-search"></i></a></li>
                                 </ul>

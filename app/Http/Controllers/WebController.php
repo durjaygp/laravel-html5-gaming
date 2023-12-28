@@ -18,6 +18,7 @@ class WebController extends Controller
         return view('homePage.game.game');
     }
     public function favoriteGame(){
+
         return view('homePage.game.mygame');
     }
     public function gameDetails($slug){
@@ -27,13 +28,29 @@ class WebController extends Controller
 
     public function favoriteSave(Request $request){
         if(Auth::check()) {
+            $userId = auth()->user()->id;
+            $gameId = $request->game_id;
+
+            // Check if the combination already exists
+            $existingFavorite = FavoriteGames::where('user_id', $userId)
+                ->where('game_id', $gameId)
+                ->first();
+
+            if ($existingFavorite) {
+                return redirect()->back()->with('warning','Game is already in Your Favorite List');
+            }
+
+            // If not, save the new record
             $game = new FavoriteGames();
-            $game->user_id = auth()->user()->id;
-            $game->game_id = $request->game_id;
+            $game->user_id = $userId;
+            $game->game_id = $gameId;
+            $game->save();
+
             return redirect()->back()->with('success','Game added to Your Favorite List');
-        }else{
-            return redirect()->route('login')->with('error','Please Login First');
+        } else {
+            return redirect()->route('login')->with('warning','Please Login First');
         }
     }
+
 
 }

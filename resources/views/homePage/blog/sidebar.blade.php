@@ -1,17 +1,17 @@
 <aside class="blog-sidebar">
-    <div class="widget mb-45">
-        <div class="sidebar-about">
-            <div class="sidebar-about-thumb">
-                <img src="{{asset('geco')}}/img/blog/sidebar_about_thumb.jpg" alt="">
-            </div>
-            <div class="sidebar-widget-title mb-15">
-                <h4>ABOUT THE <span>AUTHOR</span></h4>
-            </div>
-            <div class="sidebar-about-content">
-                <p>Donec orci enim, bibendum a augue quis, aliquet cursus quamPellentesq.</p>
-            </div>
-        </div>
-    </div>
+{{--    <div class="widget mb-45">--}}
+{{--        <div class="sidebar-about">--}}
+{{--            <div class="sidebar-about-thumb">--}}
+{{--                <img src="{{asset('geco')}}/img/blog/sidebar_about_thumb.jpg" alt="">--}}
+{{--            </div>--}}
+{{--            <div class="sidebar-widget-title mb-15">--}}
+{{--                <h4>ABOUT THE <span>AUTHOR</span></h4>--}}
+{{--            </div>--}}
+{{--            <div class="sidebar-about-content">--}}
+{{--                <p>Donec orci enim, bibendum a augue quis, aliquet cursus quamPellentesq.</p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="widget mb-45">
         <div class="sidebar-search">
             <form action="#">

@@ -68,20 +68,29 @@
                             @csrf
 
                             <div class="row">
-                                <div class="col-md-12">
-                                    <input type="text" name="name" placeholder=" Name" required>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="name" placeholder=" Name" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="email" name="email" placeholder="Email" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="password" name="password" placeholder="Password" required>
+                                        </div>
+                                        <div class="col-md-12">
+
+                                            <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-style-three">Register</button>
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <input type="email" name="email" placeholder="Email" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="password" name="password" placeholder="Password" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="password" name="password_confirmation" placeholder="Password" required>
-                                </div>
+                                <div class="col-md-3"></div>
+
                             </div>
-                            <button>Register</button>
+
                         </form>
                     </div>
                 </div>

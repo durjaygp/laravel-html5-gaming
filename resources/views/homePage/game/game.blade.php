@@ -27,7 +27,7 @@
                                 <div class="upcoming-game-head">
                                     <div class="uc-game-head-title">
                                         <span> {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y h:i A')}}</span>
-                                        <h4><a href="#">{{$row->name}}</a></h4>
+                                        <h4><a href="{{route('game.details',['slug'=>$row->slug])}}">{{$row->name}}</a></h4>
                                     </div>
                                 </div>
                                 <div class="upcoming-game-thumb">

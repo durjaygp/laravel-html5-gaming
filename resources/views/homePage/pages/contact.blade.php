@@ -13,8 +13,8 @@
                     </div>
                     <div class="contact-info-list mb-40">
                         <ul>
-                            <li><i class="fas fa-map-marker-alt"></i>Walking Park, Los Angeles, Brockland, USA</li>
-                            <li><i class="fas fa-envelope"></i><a href="">sdfdfsdfsdf@fgfgg.ccc</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i>{{$website->address}}</li>
+                            <li><i class="fas fa-envelope"></i><a href="">{{$website->email}}</a></li>
                         </ul>
                     </div>
                     <div class="contact-form">
@@ -29,7 +29,7 @@
                                     <input type="email" placeholder="Your Mail" name="email">
                                 </div>
                             </div>
-                            <button>SUBMIT MESSAGE</button>
+                            <button>SEND MESSAGE</button>
                         </form>
                     </div>
                 </div>

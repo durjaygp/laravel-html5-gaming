@@ -53,25 +53,30 @@
     <section class="contact-area pt-120 pb-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 pl-45">
-                    <div class="section-title title-style-three mb-20">
-                        <h2 class="text-center m-5"> <span>Login</span></h2>
-                    </div>
-                    <div class="contact-form">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="email" name="email" placeholder="Your Mail">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="pl-45">
+                        <div class="section-title title-style-three mb-20">
+                            <h2 class="text-center m-5"> <span>Login</span></h2>
+                        </div>
+                        <div class="contact-form">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="email" name="email" placeholder="Your Mail">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="password" name="password" placeholder="Your Password">
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <input type="password" name="password" placeholder="Your Password">
-                                </div>
-                            </div>
-                            <button>SUBMIT</button>
-                        </form>
+                                <button type="submit" class="btn btn-style-three">Login</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
+
             </div>
         </div>
     </section>

@@ -24,7 +24,7 @@
                         <a href="{{$game->link}}" class="btn btn-style-two">play now</a>
                         <form action="{{route('favorite.save')}}" method="post">
                             @csrf
-                            <input type="hidden" name="{{$game->id}}">
+                            <input type="hidden" name="game_id" value="{{$game->id}}">
                             <div class="m-1">
                                 <button type="submit" href="{{$game->link}}" class="btn btn-style-three">Add To Favorite list</button>
                             </div>

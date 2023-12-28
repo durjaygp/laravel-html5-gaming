@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function contact(){
-        return view('frontEnd.pages.contact');
+        return view('homePage.pages.contact');
     }
 }

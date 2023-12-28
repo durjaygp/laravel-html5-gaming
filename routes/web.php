@@ -17,24 +17,21 @@ use App\Http\Controllers\UserPanelController;
 use App\Http\Controllers\Admin\AdminRecipeController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Web\CommentController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\Admin\GameController;
 
 
 // =============== Home Routes ===============
 Route::get('/', [WebController::class,'index'])->name('home');
+Route::get('/games', [WebController::class,'game'])->name('game');
 
-//Route::get('/ddd', [HomeController::class,'index'])->name('home.old);
 
-Route::get('/recipes', [RecipeController::class,'index'])->name('home.recipes');
-Route::get('/recipe/{id}/{slug}', [RecipeController::class,'details'])->name('recipe.details');
 Route::get('/books', [BookController::class,'index'])->name('home.books');
 Route::get('/blog/{slug}', [HomeController::class,'blogDetails'])->name('home.blogDetails');
 Route::get('/category/{slug}', [HomeController::class,'category'])->name('home.category');
 Route::get('/blog', [HomeController::class,'blog'])->name('home.blogs');
-//Route::get('/payfast', [HomeController::class,'pay'])->name('home.pay');
-Route::get('/success', [HomeController::class,'success'])->name('home.success');
+Route::post('comment/save',[CommentController::class,'store'])->name('comment.save');
 
 Route::get('/book/{slug}', [BookController::class,'details'])->name('book.details');
 Route::get('/contact-us', [PagesController::class,'contact'])->name('home.contact');
@@ -127,8 +124,7 @@ Route::middleware(['auth', 'isadmin'])->group(function(){
     Route::post('admin/page/about/', [AdminController::class, 'homeAboutSave'])->name('page.homeAboutSave');
   //  Route::post('admin/website/settings/update', [SettingController::class, 'update'])->name('update.setting');
 
-    Route::resource('game', GameController::class);
-
+    Route::resource('game',GameController::class);
 
 });
 

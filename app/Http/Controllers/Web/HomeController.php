@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Recipe;
 use App\Models\User;
@@ -28,8 +29,10 @@ class HomeController extends Controller
 
     public function blogDetails($slug){
         $blog = Blog::where('slug',$slug)->first();
-        return view('frontEnd.blog.blog_details',compact('blog'));
+        $comments = Comment::where('blog_id', $blog->id)->get();
+        return view('homePage.blog.details',compact('blog','comments'));
     }
+
     public function category($slug){
         $category = Category::where('slug',$slug)->first();
         $recipes = Recipe::where('category_id',$category->id)->latest()->get();
@@ -37,7 +40,7 @@ class HomeController extends Controller
     }
     public function blog(){
         $blogs = Blog::latest()->whereStatus(1)->get();
-        return view('frontEnd.blog.blogs',compact('blogs'));
+        return view('homePage.blog.blog',compact('blogs'));
     }
 
     public function searchBooks(Request $request){
@@ -64,15 +67,13 @@ class HomeController extends Controller
 
     public function contactMessage(Request $request){
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|max:255',
             'email'=>'required',
-            'subject'=>'required',
-            'message'=>'required',
+            'message'=>'required|max:255',
         ]);
         $message = new Contact();
         $message->name = $request->name;
         $message->email = $request->email;
-        $message->subject = $request->subject;
         $message->message = $request->message;
         $message->save();
         return redirect()->back()->with('success','Message Send Successful');

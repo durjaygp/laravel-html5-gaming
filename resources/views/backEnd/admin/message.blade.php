@@ -47,7 +47,6 @@
                                     <!-- start row -->
                                     <tr>
                                         <th>#</th>
-                                        <th>Subject</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Description</th>
@@ -60,7 +59,6 @@
                                         <!-- start row -->
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$row->subject}}</td>
                                             <td>{{$row->name}}</td>
                                             <td>{{$row->email}}</td>
                                             <td>{{$row->message}}</td>

@@ -1,5 +1,5 @@
 @extends('backEnd.master')
-@section('title','Update Home Page About Section')
+@section('title','Game')
 @section('content')
     <div class="container-fluid">
         <div class="card bg-light-info shadow-none position-relative overflow-hidden">
@@ -10,7 +10,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted " href="{{route('admin.index')}}">Dashboard</a></li>
-                                <li class="breadcrumb-item" aria-current="page">@yield('title')</li>
+                                <li class="breadcrumb-item" aria-current="page">Game</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-4 ">
-                            <h2>Update About Section</h2>
+                            <h2>Create Game</h2>
                         </div>
                         <div class="col-md-8 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
                             <a href="{{route('game.index')}}" class="btn btn-info d-flex align-items-center">
@@ -38,42 +38,52 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('page.homeAboutSave')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('game.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label fw-semibold">Title</label>
-                                    <input type="text" name="title" class="form-control" placeholder="ABOUT US" value="{{$row->title}}">
+                                    <label for="blogTitle" class="form-label fw-semibold">Game Name</label>
+                                    <input type="text" name="name" class="form-control" id="blogTitle" placeholder="Book Name">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-4">
-                                    <label for="exampleInputPassword1" class="form-label fw-semibold">Header</label>
-                                    <input type="text" name="header" class="form-control" placeholder="Enter Email" value="{{$row->header}}">
+                                    <label for="exampleInputPassword1" class="form-label fw-semibold">Game Link</label>
+                                    <input type="text" name="link" class="form-control" id="exampleInputtext" placeholder="Example: https://chumgames.cc/Games/halloween-basketball/index.html">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label fw-semibold">Image</label>
+                                    <input type="file" name="image" class="form-control dropify" >
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-4">
                                     <label for="exampleInputPassword1" class="form-label fw-semibold">Description</label>
-                                    <textarea name="description" id="" cols="10" rows="5" class="form-control" placeholder="Write a short Description">{{$row->description}}</textarea>
-
+                                    <textarea name="description" id="summernote"  cols="10" rows="5" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="exampleInputPassword1" class="form-label fw-semibold"> Image</label>
-                                        <input class="dropify" type="file" name="image" accept="image/*">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="exampleInputPassword1" class="form-label fw-semibold">Existing Image</label> <br>
-                                        <img src="{{asset($row->image)}}" class="img-fluid w-50">
-                                    </div>
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label fw-semibold">Status</label>
+                                    <select name="status" id="" class="form-select">
+                                        <option>Select</option>
+                                        <option value="1">Publish</option>
+                                        <option value="2">Draft/Unpublished</option>
+                                    </select>
+                                </div>
                             </div>
-
+                            <div class="col-12">
+                                <div class="d-flex align-items-center gap-3">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-primary">Submit</button>
-                    </form>
+
+                     </form>
                 </div>
             </div>
 
@@ -83,14 +93,11 @@
 @section('style')
     <link rel="stylesheet" href="{{asset('/')}}dropify/dist/css/dropify.min.css">
     <link rel="stylesheet" href="{{asset('back')}}/assets/libs/summernote/dist/summernote-lite.min.css">
-
-    <link rel="stylesheet" href="{{asset('back')}}/assets/libs/quill/dist/quill.snow.css">
 @endsection
 @section('script')
 
     <script src="{{asset('/')}}dropify/dist/js/dropify.min.js"></script>
     <script src="{{asset('back')}}/assets/libs/summernote/dist/summernote-lite.min.js"></script>
-    <script src="{{asset('back')}}/assets/libs/quill/dist/quill.min.js"></script>
     <script>
         $("#summernote").summernote({
             height: 350, // set editor height
@@ -105,11 +112,6 @@
                 'remove':  'Remove',
                 'error':   'Ooops, something wrong happended.'
             }
-        });
-    </script>
-    <script>
-        var quill = new Quill("#editor", {
-            theme: "snow",
         });
     </script>
 @endsection

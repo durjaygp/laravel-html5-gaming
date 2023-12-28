@@ -38,53 +38,17 @@
                     <!-- =================== -->
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Books</span>
+                        <span class="hide-menu">Games</span>
                     </li>
                     <!-- =================== -->
                     <!-- Books -->
                     <!-- =================== -->
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('book.list')}}" aria-expanded="false">
+                        <a class="sidebar-link" href="{{route('game.index')}}" aria-expanded="false">
                   <span>
                     <i class="ti ti-book-upload"></i>
                   </span>
-                            <span class="hide-menu">Book</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('order.list')}}" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-shopping-cart"></i>
-                  </span>
-                            <span class="hide-menu">Order</span>
-                        </a>
-                    </li>
-                    <!-- =================== -->
-
-                    <!-- =================== -->
-                    <!-- Recipe Intro -->
-                    <!-- =================== -->
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Recipes</span>
-                    </li>
-                    <!-- =================== -->
-                    <!-- Books -->
-                    <!-- =================== -->
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('category.index')}}" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-category-2"></i>
-                  </span>
-                            <span class="hide-menu">Category</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('recipe.list')}}" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-cookie"></i>
-                  </span>
-                            <span class="hide-menu">Recipe</span>
+                            <span class="hide-menu">Games</span>
                         </a>
                     </li>
                     <!-- =================== -->
@@ -105,25 +69,6 @@
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Website</span>
                     </li>
-
-{{--                    <li class="sidebar-item">--}}
-{{--                        <a class="sidebar-link has-arrow" href="#" aria-expanded="false">--}}
-{{--                      <span class="d-flex">--}}
-{{--                        <i class="ti ti-dna"></i>--}}
-{{--                      </span>--}}
-{{--                            <span class="hide-menu">Pages</span>--}}
-{{--                        </a>--}}
-{{--                        <ul aria-expanded="false" class="collapse first-level">--}}
-{{--                            <li class="sidebar-item">--}}
-{{--                                <a href="{{route('page.homeAbout')}}" class="sidebar-link">--}}
-{{--                                    <div class="round-16 d-flex align-items-center justify-content-center">--}}
-{{--                                        <i class="ti ti-circle"></i>--}}
-{{--                                    </div>--}}
-{{--                                    <span class="hide-menu">Home Page</span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
 
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{route('page.homeAbout')}}">

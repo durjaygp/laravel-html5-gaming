@@ -17,10 +17,12 @@
                                 <h2><a href="#">{{$row->name}}</a></h2>
                                 <div class="blog-meta">
                                     <ul>
-                                        <li>bY <a href="#">{{$row->user->name}}</a> {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y h:i A')}}</li>
+                                        <li>bY <a href="#">{{$row->user->name}}</a>
+                                            {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->format('M d, Y h:i A')}}</li>
                                     </ul>
                                 </div>
                                 <p>{{$row->description}}</p>
+
                             </div>
                             <div class="blog-list-post-bottom">
                                 <ul>

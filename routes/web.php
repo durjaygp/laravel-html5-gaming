@@ -25,17 +25,19 @@ use App\Http\Controllers\Admin\GameController;
 // =============== Home Routes ===============
 Route::get('/', [WebController::class,'index'])->name('home');
 Route::get('/games', [WebController::class,'game'])->name('game');
+Route::get('/game/{slug}', [WebController::class,'gameDetails'])->name('game.details');
 
 
 Route::get('/books', [BookController::class,'index'])->name('home.books');
 Route::get('/blog/{slug}', [HomeController::class,'blogDetails'])->name('home.blogDetails');
-Route::get('/category/{slug}', [HomeController::class,'category'])->name('home.category');
 Route::get('/blog', [HomeController::class,'blog'])->name('home.blogs');
-Route::post('comment/save',[CommentController::class,'store'])->name('comment.save');
-
-Route::get('/book/{slug}', [BookController::class,'details'])->name('book.details');
 Route::get('/contact-us', [PagesController::class,'contact'])->name('home.contact');
 Route::post('/contact/save', [HomeController::class,'contactMessage'])->name('contact.save');
+
+
+Route::get('/category/{slug}', [HomeController::class,'category'])->name('home.category');
+Route::post('comment/save',[CommentController::class,'store'])->name('comment.save');
+Route::get('/book/{slug}', [BookController::class,'details'])->name('book.details');
 Route::post('/book/add-to-cart',[CartController::class,'cartToSave'])->name('cart.save');
 Route::get('/cart', [CartController::class,'index'])->name('home.cart');
 Route::get('/cart/remove/{id}', [CartController::class,'remove'])->name('cart.remove');
@@ -58,17 +60,13 @@ Route::middleware('auth')->group(function () {
         ->name('myBooks.read')
         ->where('encryptedId', '[A-Za-z0-9]+'); // Adjust the pattern based on your use case
 
-
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware(['auth', 'isadmin'])->group(function(){
-
     Route::get('/admin',[DashboardController::class,'index'])->name('admin.index');
-
     //======== Category Routes ==========
     Route::get('/admin/category',[AdminCategoryController::class,'index'])->name('category.index');
     Route::get('/admin/category/create',[AdminCategoryController::class,'create'])->name('category.create');

@@ -51,7 +51,6 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Home <br>Page <br> Featured</th>
                                         <th>Action</th>
                                     </tr>
                                     <!-- end row -->
@@ -76,19 +75,6 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if($row->is_featured == 1)
-                                                <div class="text-success">
-                                                    Active
-                                                </div>
-                                            @elseif($row->is_featured == 2)
-                                                <span class="text-danger">
-                                                    Inactive
-                                                </span>
-                                            @endif
-
-                                        </td>
-
-                                        <td>
                                             <div class="action-btn">
                                                 <a href="{{route('game.edit',$row->id)}}" class="btn btn-sm btn-primary">
                                                     <i class="ti ti-pencil fs-5"></i>
@@ -101,8 +87,9 @@
                                                     <i class="ti ti-trash fs-5"></i>
                                                 </a>
 
-                                                <form id="delete-form-{{ $row->id }}" action="{{ route('book.delete', $row->id) }}" method="get" style="display: none;">
+                                                <form id="delete-form-{{ $row->id }}" action="{{ route('game.destroy', $row->id) }}" method="post" style="display: none;">
                                                     @csrf
+                                                   @method('DELETE')
                                                 </form>
 
                                             </div>
